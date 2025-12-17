@@ -39,12 +39,15 @@ model.fit(X_train, y_train)
 # 5. Lưu kết quả vào folder models/
 if not os.path.exists('models'): os.makedirs('models')
 
-with open('models/career_model_lgbm.pkl', 'wb') as f: # Giữ tên file để đồng bộ dự án
+with open('models/career_model_gb.pkl', 'wb') as f:
     pickle.dump(model, f)
+    
 with open('models/scaler.pkl', 'wb') as f:
     pickle.dump(scaler, f)
+    
 with open('models/label_encoder.pkl', 'wb') as f:
     pickle.dump(le, f)
 
+print("Đã lưu mô hình với tên: career_model_gb.pkl")
 print(f"Huấn luyện thành công!")
 print(f"Độ chính xác: {model.score(X_test, y_test)*100:.2f}%")
